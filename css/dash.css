@@ -227,7 +227,7 @@
 }
 
 .info-grid div {
-  display: flex;
+  display: grid;
   justify-content: space-between;
   margin-bottom: 10px;
 }

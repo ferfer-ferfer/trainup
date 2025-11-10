@@ -243,15 +243,32 @@
 .faq-table .answer {
   display: none;
   padding: 0 22px 18px;
-  color: #d9faff;
+  color: #fff;
   font-size: 15px;
   text-align: left;
   line-height: 1.6;
 }
 
+.faq-table input[type="radio"] {
+  display: none;
+}
 .faq-table input[type="radio"]:checked + label + .answer {
   display: block;
 }
+
+.faq-table label .icon::before {
+  content: "+";
+float : right;
+font-weight: bold;
+font-size: 18px;
+color: #fff;
+
+}
+.faq-table input[type="radio"]:checked + label  .icon::before {
+  content: "-";
+
+}
+
   </style>
 </head>
 
@@ -308,28 +325,28 @@
       <tr>
         <td colspan="2">
           <input type="radio" name="faq" id="q1">
-          <label for="q1">How can I join a course?<span>+</span></label>
+          <label for="q1">How can I join a course?<span class="icon"></span></label>
           <div class="answer">Register through our Courses page and choose your desired skill.</div>
         </td>
       </tr>
       <tr>
         <td colspan="2">
           <input type="radio" name="faq" id="q2">
-          <label for="q2">Is TrainUp free?<span>+</span></label>
+          <label for="q2">Is TrainUp free?<span class="icon"></span></label>
           <div class="answer">Some courses are free, while others require premium access.</div>
         </td>
       </tr>
       <tr>
         <td colspan="2">
           <input type="radio" name="faq" id="q3">
-          <label for="q3">Can I become an instructor?<span>+</span></label>
+          <label for="q3">Can I become an instructor?<span class="icon"></span></label>
           <div class="answer">Yes! If you have teaching skills, apply to become a mentor on TrainUp.</div>
         </td>
       </tr>
       <tr>
         <td colspan="2">
           <input type="radio" name="faq" id="q4">
-          <label for="q4">Do I need experience to start?<span>+</span></label>
+          <label for="q4">Do I need experience to start?<span class="icon"></span></label>
           <div class="answer">Not at all! We offer beginner-friendly content to help you start smoothly.</div>
         </td>
       </tr>
