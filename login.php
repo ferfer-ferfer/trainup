@@ -4,12 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TrainUp | Sign In / Sign Up</title>
+  <link rel="icon" href="img/Group 100.png" type="image/png">
 <link rel="stylesheet" href="css/style.css" />
 
 <style>
-/* ===========================
-   MAIN LAYOUT
-=========================== */
+
 main {
   flex: 1;
   display: flex;
@@ -32,9 +31,6 @@ main {
   margin-bottom: 10px;
 }
 
-/* ===========================
-   SIGN-IN BOX
-=========================== */
 .signin-box {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(0, 217, 255, 0.3);
@@ -63,7 +59,7 @@ main {
   font-size: 0.9rem;
 }
 
-/* Options Row */
+
 .options {
   display: flex;
   justify-content: space-between;
@@ -101,7 +97,7 @@ main {
   text-decoration: underline;
 }
 
-/* Social & Button */
+
 .social {
   display: flex;
   gap: 20px;
@@ -141,9 +137,7 @@ main {
   background: #00b7e6;
 }
 
-/* ===========================
-   SIGN-UP BOX
-=========================== */
+
 .form-box {
   flex: 1;
   background: rgba(255, 255, 255, 0.1);
@@ -192,7 +186,7 @@ main {
 }
 
 .social-login span:hover {
-  color: #00e5ff;
+  color: #00ffff;
 }
 
 .form-box button,
@@ -230,9 +224,6 @@ main {
   text-decoration: underline;
 }
 
-/* ===========================
-   RESPONSIVE DESIGN
-=========================== */
 
 /* Medium screens (≤1024px) */
 @media (max-width: 1024px) {
@@ -343,10 +334,10 @@ main {
       <ul>
         <li><img src="img/logo.png" alt=""></li>
         <li><a href="index.html">Home</a></li>
-        <li><a href="course.html">Courses</a></li>
+        <li><a href="index.html">Courses</a></li>
         <li><a href="aboutas.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#" class="button" id="headerSignIn">Sign In</a></li>
+        <li><a href="aboutas.html">Contact</a></li>
+        <li><a href="login.html" class="button" id="headerSignIn">Sign In</a></li>
       </ul>
     </nav>
   </header>
@@ -360,12 +351,12 @@ main {
     </div>
 
     <div class="signin-box" >
-      <form>
+      <form action="signin.php" method="POST">
         <label>Email Address</label>
-        <input type="email" placeholder="Email" required />
+        <input type="email" name="email" placeholder="Email" required />
 
         <label>Password</label>
-        <input type="password" placeholder="Password" required />
+        <input type="password" name="password" placeholder="Password" required />
 
         <div class="options">
           <div class="remember">
@@ -380,8 +371,7 @@ main {
         <div class="social">
           <a href="#">Google</a>
         </div>
-
-        <a href="dashboard.html" class="signin-btn">Sign In</a>
+        <button type="submit" class="signin-btn">Sign In</button>
 
         <div class="switch-link">
           Don't have an account? <a href="#" id="toSignup">Sign Up</a>
@@ -393,30 +383,35 @@ main {
   <!-- Sign Up -->
   <div class="container signup" >
     <div class="form-box">
-      <form>
-        <label>Full Name</label>
-        <input type="text" placeholder="Full Name" required />
+<form action="signup.php" method="POST">
+    <label>First Name</label>
+    <input type="text" name="firstname" placeholder="First Name" required />
 
-        <label>Email Address</label>
-        <input type="email" placeholder="Email" required />
+    <label>Last Name</label>
+    <input type="text" name="lastname" placeholder="Last Name" required />
 
-        <label>Password</label>
-        <input type="password" placeholder="Password" required />
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Username" required />
 
-        <label>Confirm Password</label>
-        <input type="password" placeholder="Confirm Password" required />
+    <label>Email Address</label>
+    <input type="email" name="email" placeholder="Email" required />
 
-        <div class="social-login">
-          Sign Up with <span>Google</span>
-        </div>
+    <label>Phone Number</label>
+    <input type="text" name="phoneNumber" placeholder="Phone Number" />
 
-        <a href="information.html" class="signin-btn">Sign Up</a>
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Password" required />
 
-        <div class="switch-link">
-          Already have an account? <a href="#" id="toSignin">Sign In</a>
-        </div>
-      </form>
+    <label>Confirm Password</label>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+
+    <button type="submit" class="signin-btn">Sign Up</button>
+</form>
+
+
     </div>
   </div>
 </body>
 </html>
+
+

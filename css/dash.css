@@ -1,7 +1,5 @@
 
-/* =========================================================
-    DASHBOARD CONTAINER (Shared)
-========================================================= */
+
 .dashboard-container {
   display: flex;
   justify-content: center;
@@ -11,9 +9,7 @@
   margin: 60px auto;
 }
 
-/* =========================================================
-    SIDEBAR (Shared)
-========================================================= */
+
 .sidebar {
   flex: 1;
   display: flex;
@@ -55,16 +51,13 @@
 }
 
 
-/* =========================================================
-    DASHBOARD CONTENT (For dashboard.html)
-========================================================= */
+
 .dashboard-content {
   flex: 3;
   background: rgba(0, 30, 70, 0.4);
   border: 2px solid #00bfff;
   border-radius: 15px;
   box-shadow: 0 0 25px #00bfff40;
-  backdrop-filter: blur(12px);
   padding: 25px 40px;
 }
 
@@ -74,7 +67,7 @@
   margin-bottom: 40px;
 }
 
-/* Stats boxes */
+
 .stats {
   display: flex;
   justify-content: space-around;
@@ -106,7 +99,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 10px auto;
-  box-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff;
+  box-shadow: 0 0 10px #00e0ff;
 }
 
 .icon-box img {
@@ -125,9 +118,7 @@
   font-weight: 500;
 }
 
-/* =========================================================
-    EVENT SECTION (For event.html)
-========================================================= */
+
 .event-container {
   flex: 3;
   background: linear-gradient(180deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.05) 100%);
@@ -143,9 +134,7 @@
   color: #00e5ff;
 }
 
-/* =========================================================
-    COLLAPSIBLE MODULES (Pure CSS accordion)
-========================================================= */
+
 .modules {
   width: 95%;
   margin: 30px 0;
@@ -169,12 +158,12 @@
   transform: translateY(-2px);
 }
 
-/* Hide radio input */
+
 .module input {
   display: none;
 }
 
-/* Header */
+
 .module .header {
   display: flex;
   justify-content: space-between;
@@ -183,14 +172,14 @@
   font-size: 1.1rem;
 }
 
-/* Plus/minus icon */
+
 .module .icon::after {
   content: "+";
   font-size: 1.4rem;
   transition: transform 0.3s ease, content 0.3s ease;
 }
 
-/* Content */
+
 .module .content {
   max-height: 0;
   overflow: hidden;
@@ -200,7 +189,7 @@
   transform: translateY(-5px);
 }
 
-/* Checked (open) */
+
 .module input:checked ~ .header .icon::after {
   content: "–";
 }
@@ -212,9 +201,7 @@
   transform: translateY(0);
 }
 
-/* =========================================================
-    INFO GRID & COACH CARD
-========================================================= */
+
 .info-grid {
   gap: 8px;
   margin-top: 25px;
@@ -241,7 +228,7 @@
   font-size: 0.8rem;
 }
 
-/* Coach */
+
 .coach-card {
   background: rgba(0, 217, 255, 0.08);
   border: 1px solid rgba(0, 217, 255, 0.3);
@@ -281,9 +268,7 @@
   color: #a7eaff;
 }
 
-/* =========================================================
-    REGISTER BUTTON & POPUP (Checkbox trick)
-========================================================= */
+
 .register-btn {
   display: inline-block;
   width: 100%;
@@ -305,12 +290,12 @@
   box-shadow: 0 0 15px #00d9ff;
 }
 
-/* Hidden checkbox for popup */
+
 #popup {
   display: none;
 }
 
-/* Popup overlay */
+
 .popup {
   position: fixed;
   top: 0;
@@ -327,13 +312,13 @@
   z-index: 999;
 }
 
-/* Show popup when checked */
+
 #popup:checked + .popup {
   visibility: visible;
   opacity: 1;
 }
 
-/* Popup content */
+
 .popup-content {
   background: linear-gradient(135deg, #002b60, #001a40);
   border-radius: 15px;
@@ -355,7 +340,7 @@
   font-weight: 600;
 }
 
-/* Close button */
+
 .close-btn {
   display: inline-block;
   background: #00d9ff;

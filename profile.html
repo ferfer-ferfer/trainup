@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrainUp | Profile</title>
+  <link rel="icon" href="img/Group 100.png" type="image/png">
   <link rel="stylesheet" href="css/style.css" />
   <style>
     h1 {
@@ -14,7 +15,7 @@
     h1 span {
       color: #00ffff;
     }
-    .profile-container {
+    .profile-container , .edit-profile {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       border-radius: 15px;
@@ -55,36 +56,6 @@
       color: #e0f7fa;
       font-size: 15px;
     }
-    .role-tag {
-      display: inline-block;
-      background-color: #00ffff;
-      color: #001F54;
-      font-weight: 600;
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 14px;
-      margin-top: 8px;
-    }
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin: 30px 0;
-      text-align: center;
-      flex-wrap: wrap;
-    }
-    .stat {
-      margin: 10px;
-    }
-    .stat h3 {
-      color: #00ffff;
-      margin-bottom: 5px;
-      font-size: 22px;
-    }
-    .stat p {
-      color: #e0f7fa;
-      font-size: 14px;
-      margin: 0;
-    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -107,21 +78,27 @@
       text-align: center;
       margin-top: 35px;
     }
-    .actions button {
+    .actions a ,.edit-profile a {
       background-color: #00ffff;
       color: #001F54;
       border: none;
       border-radius: 25px;
+      text-decoration: none;
       padding: 10px 25px;
       font-weight: 600;
       cursor: pointer;
       transition: 0.3s;
       margin: 0 10px;
     }
-    .actions button:hover {
+    .actions a:hover .edit-profile a:hover {
       background-color: #00d5ff;
       transform: scale(1.05);
     }
+    .edit-profile input , .edit-profile textarea {
+      width: 90%;
+      background: #d6d7d7;
+    }
+
     @media (max-width: 700px) {
       .profile-container {
         padding: 30px 20px;
@@ -162,32 +139,22 @@
 
   <h1><span>User</span> Profile</h1>
 
-  <div class="profile-container">
+  <div class="profile-container" >
     <div class="profile-header">
-      <img src="img/user.png" alt="Profile Photo" class="photo-preview" />
+      <img src="img/personne2.png" alt="Profile Photo" class="photo-preview" />
       <div class="user-info">
         <h2>Feriel Menouer</h2>
-        <span class="role-tag">Trainer</span>
         <p>feriel@example.com</p>
         <p>Algiers, Algeria</p>
       </div>
     </div>
 
-    <div class="stats">
-      <div class="stat">
-        <h3>12</h3>
-        <p>Active Courses</p>
-      </div>
-      <div class="stat">
-        <h3>45</h3>
-        <p>Students</p>
-      </div>
-    </div>
+
 
     <table>
       <tr>
         <td class="label">Phone</td>
-        <td class="value">+213 555 123 456</td>
+        <td class="value">+213 698 704 613</td>
       </tr>
       <tr>
         <td class="label">Email</td>
@@ -204,9 +171,46 @@
     </table>
 
     <div class="actions">
-      <button>Edit Profile</button>
-      <button>View Sessions</button>
+       <a href="#edit-profile" class="button">Edit Profile</a>
+       <a href="courses.html" class="button">View Sessions</a>
     </div>
+
+  </div>
+  <div id="edit-profile" class="edit-profile"  style="display: none;"> 
+      <table>
+        <tr>
+          <td><label for="photo" class="label">Profile Photo</label></td>
+          <td>
+            <img id="photoPreview" class="photo-preview" src="img/personne2.png" alt="">
+            <input  type="file" id="photo" name="photo" accept="image/*">
+          </td>
+        </tr>
+        <tr>
+          <td><label for="firstName" class="label">First Name</label></td>
+          <td><input type="text" id="firstName" name="firstName" placeholder="Meneour" required></td>
+        </tr>
+        <tr>
+          <td><label for="lastName" class="label">Last Name</label></td>
+          <td><input type="text" id="lastName" name="lastName" placeholder="Feriel" required></td>
+        </tr>
+        <tr>
+          <td><label for="phone" class="label">Phone</label></td>
+          <td><input type="tel" id="phone" name="phone" placeholder="+213 698 704 613"></td>
+        </tr>
+        <tr>
+          <td><label for="address" class="label">Address</label></td>
+          <td><textarea id="address" name="address" rows="3" placeholder="Algiers Algeria"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="bio" class="label">Enter your bio</label></td>
+          <td><textarea id="bio" name="bio" rows="4" placeholder="Passionate about teaching and technology. Always learning something new."></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="submit-row">
+            <a href="#" class="button">Save</a>
+          </td>
+        </tr>
+      </table>
   </div>
 </body>
 </html>

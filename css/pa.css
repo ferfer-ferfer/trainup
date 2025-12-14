@@ -1,6 +1,6 @@
 
 
-/* === Shared Glassy Box Style === */
+
 .box {
   border: 2px solid #00bfff;
   border-radius: 15px;
@@ -10,7 +10,6 @@
   padding: 25px;
 }
 
-/* === Shared Button Style === */
 .button {
   display: block;
   width: 90%;
@@ -33,9 +32,8 @@
   transform: scale(1.03);
 }
 
-/* =========================================================
-    CART PAGE
-========================================================= */
+
+
 .cart {
   display: flex;
   justify-content: space-between;
@@ -113,9 +111,7 @@ td {
   margin: 15px 0;
 }
 
-/* =========================================================
-    PAYMENT PAGE
-========================================================= */
+
 .payment-container {
   display: flex;
   justify-content: space-between;
@@ -154,7 +150,7 @@ td {
   box-shadow: 0 0 10px #00e5ff50;
 }
 
-/* === Order Summary === */
+
 .order-item {
   display: flex;
   align-items: center;
@@ -186,7 +182,7 @@ td {
   font-size: 1.2rem;
 }
 
-/* === Payment methods === */
+
 .payment-method {
   display: flex;
   align-items: center;
