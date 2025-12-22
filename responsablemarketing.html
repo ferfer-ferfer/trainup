@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marketing Manager Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f6f7fb;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 270px;
+      background-color: #1e3a8a;
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #facc15;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 14px;
+      margin-bottom: 10px;
+      background-color: #1e3a8a;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #1e3a8a;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: #1e3a8a
+      ;
+      font-size: 24px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Table */
+    .table-section {
+      margin-top: 35px;
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #faf5ff;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .btn-edit {
+      background-color: #1e3a8a;
+    }
+
+    .btn-send {
+      background-color: #22c55e;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Marketing</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li>Registrations</li>
+      <li>Invitations</li>
+      <li>Event Calendar</li>
+      <li>Speakers</li>
+      <li>Campaigns & Notifications</li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <h1>Marketing Manager Dashboard</h1>
+      <span>Communication & Events </span>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Active Events</h3>
+        <p>5 upcoming events</p>
+      </div>
+      <div class="card">
+        <h3>Registrations</h3>
+        <p>120 new registrations this week</p>
+      </div>
+      <div class="card">
+        <h3>Marketing Campaigns</h3>
+        <p>3 active campaigns</p>
+      </div>
+      <div class="card">
+        <h3>Speakers</h3>
+        <p>10 active speakers</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-section">
+      <h3>Upcoming Events</h3>
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Participants</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>Digital Marketing Webinar</td>
+          <td>18/02/2026</td>
+          <td>45</td>
+          <td>
+            <button class="btn btn-edit">Edit</button>
+            <button class="btn btn-send">Send Invite</button>
+          </td>
+        </tr>
+        <tr>
+          <td>AI Conference</td>
+          <td>25/02/2026</td>
+          <td>80</td>
+          <td>
+            <button class="btn btn-edit">Edit</button>
+            <button class="btn btn-send">Send Invite</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

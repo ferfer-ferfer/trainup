@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administrator Dashboard</title>
+  <link rel="stylesheet" href="css/dash.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f4f6f9;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background-color: #020617;
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #38bdf8;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 14px;
+      margin-bottom: 10px;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #1e293b;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: #020617;
+      font-size: 26px;
+    }
+
+    /* Statistics cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      color: #0ea5e9;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Table section */
+    .table-section {
+      margin-top: 35px;
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #f1f5f9;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .btn-edit {
+      background-color: #1e3a8a;
+    }
+
+    .btn-delete {
+      background-color: #ef4444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Administrator</h2>
+    <ul>
+      <li>Dashboard Overview</li>
+      <li>User Management</li>
+      <li>Roles & Permissions</li>
+      <li>Contacts</li>
+      <li>System Settings</li>
+      <li>Logs & Reports</li>
+    </ul>
+  </div>
+
+  <!-- Main content -->
+  <div class="main">
+    <div class="header">
+      <h1>Admin Dashboard</h1>
+      <span>System Control & Monitoring ⚙️</span>
+    </div>
+
+    <!-- Statistics cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Users</h3>
+        <p>245 registered accounts</p>
+      </div>
+
+      <div class="card">
+        <h3>Active Roles</h3>
+        <p>6 roles configured</p>
+      </div>
+
+      <div class="card">
+        <h3>System Status</h3>
+        <p>All services are operational</p>
+      </div>
+
+      <div class="card">
+        <h3>Security Alerts</h3>
+        <p>No critical alerts detected</p>
+      </div>
+    </div>
+
+    <!-- Activity table -->
+    <div class="table-section">
+      <h3>Recent User Activities</h3>
+      <table>
+        <tr>
+          <th>User</th>
+          <th>Role</th>
+          <th>Activity</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+
+        <tr>
+          <td>Ahmed B.</td>
+          <td>Sales</td>
+          <td>Created a new offer</td>
+          <td>2026-01-10</td>
+          <td>
+            <button class="btn btn-edit">Edit</button>
+            <button class="btn btn-delete">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Sara M.</td>
+          <td>Marketing</td>
+          <td>Created a new event</td>
+          <td>2026-01-11</td>
+          <td>
+            <button class="btn btn-edit">Edit</button>
+            <button class="btn btn-delete">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

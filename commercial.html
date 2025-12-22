@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sales Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f4f6f9;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background-color: #0f172a;
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #38bdf8;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 14px;
+      margin-bottom: 10px;
+      background-color: #1e293b;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #334155;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: #0f172a;
+      font-size: 24px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color: #0284c7;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Table */
+    .table-section {
+      margin-top: 35px;
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #f1f5f9;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .btn-view {
+      background-color: #3b82f6;
+    }
+
+    .btn-create {
+      background-color: #22c55e;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Sales</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li>Promotional Packages</li>
+      <li>Private Sessions</li>
+      <li>Client Payments</li>
+      <li>Contacts</li>
+      <li>Settings</li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <h1>Sales Dashboard</h1>
+      <span>Sales Tracking & Performance 📊</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Custom Offers</h3>
+        <p>6 active offers</p>
+      </div>
+      <div class="card">
+        <h3>Promotional Packages</h3>
+        <p>4 ongoing packages</p>
+      </div>
+      <div class="card">
+        <h3>Private Sessions</h3>
+        <p>3 scheduled sessions</p>
+      </div>
+      <div class="card">
+        <h3>Revenue</h3>
+        <p>€12,500 this month</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-section">
+      <h3>Client Payments</h3>
+      <table>
+        <tr>
+          <th>Client</th>
+          <th>Offer</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>Mohamed A.</td>
+          <td>Web Pro Package</td>
+          <td>€500</td>
+          <td>Confirmed</td>
+          <td><button class="btn btn-view">View</button></td>
+        </tr>
+        <tr>
+          <td>Sarah K.</td>
+          <td>Private Marketing Session</td>
+          <td>€800</td>
+          <td>Pending</td>
+          <td><button class="btn btn-view">Track</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

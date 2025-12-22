@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multi-role Dashboard</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+  }
+  .dashboard {
+    display: none;
+    padding: 20px;
+    margin: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  h1 { margin-bottom: 15px; color: #1e3a8a; }
+  .card {
+    background: #e0e7ff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Dashboard Admin -->
+<div id="dashboard-admin" class="dashboard">
+  <h1>Admin Dashboard</h1>
+  <div class="card">Manage Users</div>
+  <div class="card">Roles & Permissions</div>
+  <div class="card">System Settings</div>
+</div>
+
+<!-- Dashboard Commercial -->
+<div id="dashboard-commercial" class="dashboard">
+  <h1>Commercial Dashboard</h1>
+  <div class="card">View Sales</div>
+  <div class="card">Manage Offers & Packs</div>
+  <div class="card">Client Payments</div>
+</div>
+
+<!-- Dashboard Assistante -->
+<div id="dashboard-assistant" class="dashboard">
+  <h1>Sales Assistant Dashboard</h1>
+  <div class="card">Check Messages</div>
+  <div class="card">Validate Payments</div>
+  <div class="card">Manage Testimonials</div>
+</div>
+
+<!-- Dashboard Directeur Pédagogique -->
+<div id="dashboard-pedagogique" class="dashboard">
+  <h1>Pedagogical Director Dashboard</h1>
+  <div class="card">Manage Courses</div>
+  <div class="card">Approve Sessions</div>
+  <div class="card">Instructor Profiles</div>
+</div>
+
+<!-- Dashboard Marketing -->
+<div id="dashboard-marketing" class="dashboard">
+  <h1>Marketing Dashboard</h1>
+  <div class="card">Manage Campaigns</div>
+  <div class="card">Events & Invitations</div>
+  <div class="card">Send Notifications</div>
+</div>
+
+<!-- Dashboard Formateur -->
+<div id="dashboard-trainer" class="dashboard">
+  <h1>Trainer Dashboard</h1>
+  <div class="card">View Sessions to Teach</div>
+  <div class="card">Student Info</div>
+  <div class="card">Download Attendance Lists</div>
+</div>
+
+<script>
+  // =========================
+  // Simulate logged-in user role
+  // =========================
+  const userRole = 'assistant'; // changer selon l'utilisateur: 'admin', 'commercial', 'assistant', 'pedagogique', 'marketing', 'trainer'
+
+  // =========================
+  // Hide all dashboards
+  // =========================
+  const dashboards = document.querySelectorAll('.dashboard');
+  dashboards.forEach(d => d.style.display = 'none');
+
+  // =========================
+  // Show dashboard for the current role
+  // =========================
+  if(userRole === 'admin') {
+    document.getElementById('dashboard-admin').style.display = 'block';
+  } else if(userRole === 'commercial') {
+    document.getElementById('dashboard-commercial').style.display = 'block';
+  } else if(userRole === 'assistant') {
+    document.getElementById('dashboard-assistant').style.display = 'block';
+  } else if(userRole === 'pedagogique') {
+    document.getElementById('dashboard-pedagogique').style.display = 'block';
+  } else if(userRole === 'marketing') {
+    document.getElementById('dashboard-marketing').style.display = 'block';
+  } else if(userRole === 'trainer') {
+    document.getElementById('dashboard-trainer').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
+

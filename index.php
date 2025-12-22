@@ -129,7 +129,7 @@
       </div>
     </div>
     <div class="right">
-      <img src="img/index.png" alt="TrainUp Platform" width="300">
+      <img src="img/futuristic_robot_girl_portrait_with_blue_neon_accents.png" alt="TrainUp Platform" width="300">
     </div>
   </section>
 

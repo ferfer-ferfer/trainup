@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trainer Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f5f7fb;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background-color: #064e3b;
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #a7f3d0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 14px;
+      margin-bottom: 10px;
+      background-color: #065f46;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #047857;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: #064e3b;
+      font-size: 24px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color: #059669;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Table */
+    .table-section {
+      margin-top: 35px;
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #ecfdf5;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .btn-download {
+      background-color: #10b981;
+    }
+
+    .btn-view {
+      background-color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Trainer</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li>My Sessions</li>
+      <li>Learners</li>
+      <li>Teaching Materials</li>
+      <li>Survey Results</li>
+      <li>Profile</li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <h1>Trainer Dashboard</h1>
+      <span>Teaching & Sessions 🎓</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Upcoming Sessions</h3>
+        <p>3 scheduled sessions</p>
+      </div>
+      <div class="card">
+        <h3>Active Learners</h3>
+        <p>42 enrolled learners</p>
+      </div>
+      <div class="card">
+        <h3>Documents</h3>
+        <p>15 teaching files</p>
+      </div>
+      <div class="card">
+        <h3>Average Satisfaction</h3>
+        <p>90 %</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-section">
+      <h3>My Training Sessions</h3>
+      <table>
+        <tr>
+          <th>Session</th>
+          <th>Date</th>
+          <th>Learners</th>
+          <th>Actions</th>
+        </tr>
+        <tr>
+          <td>Web Development Basics</td>
+          <td>15/02/2026</td>
+          <td>20</td>
+          <td>
+            <button class="btn btn-download">Attendance List</button>
+            <button class="btn btn-view">Survey Results</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Data Analysis</td>
+          <td>22/02/2026</td>
+          <td>22</td>
+          <td>
+            <button class="btn btn-download">Attendance List</button>
+            <button class="btn btn-view">Survey Results</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

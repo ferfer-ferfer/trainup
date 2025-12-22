@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pedagogical Director Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f3f6fa;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 270px;
+      background-color: #1f2933;
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #22c55e;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 14px;
+      margin-bottom: 10px;
+      background-color: #374151;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #4b5563;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: #1f2933;
+      font-size: 24px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color: #16a34a;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Table */
+    .table-section {
+      margin-top: 35px;
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #f0fdf4;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .btn-approve {
+      background-color: #22c55e;
+    }
+
+    .btn-reject {
+      background-color: #ef4444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Pedagogical</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li>Training Schedule</li>
+      <li>Instructor Approval</li>
+      <li>Courses & Certifications</li>
+      <li>Post-Training Surveys</li>
+      <li>Profile</li>
+    </ul>
+  </div>
+
+  <!-- Main content -->
+  <div class="main">
+    <div class="header">
+      <h1>Pedagogical Director Dashboard</h1>
+      <span>Quality & Supervision 🎓</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Active Courses</h3>
+        <p>12 ongoing courses</p>
+      </div>
+      <div class="card">
+        <h3>Sessions to Approve</h3>
+        <p>4 pending sessions</p>
+      </div>
+      <div class="card">
+        <h3>Instructors</h3>
+        <p>8 new profiles</p>
+      </div>
+      <div class="card">
+        <h3>Average Satisfaction</h3>
+        <p>92%</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-section">
+      <h3>Sessions Pending Approval</h3>
+      <table>
+        <tr>
+          <th>Course</th>
+          <th>Instructor</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>Web Development</td>
+          <td>Ali B.</td>
+          <td>20/01/2026</td>
+          <td>
+            <button class="btn btn-approve">Approve</button>
+            <button class="btn btn-reject">Reject</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Data Analysis</td>
+          <td>Sara M.</td>
+          <td>25/01/2026</td>
+          <td>
+            <button class="btn btn-approve">Approve</button>
+            <button class="btn btn-reject">Reject</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

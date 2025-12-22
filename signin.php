@@ -2,8 +2,9 @@
 session_start();
 require 'db.php';
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+// Get POST data safely
+$email = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
 
 $sql = "SELECT * FROM users WHERE email = ?";
 $stmt = $conn->prepare($sql);
@@ -16,15 +17,23 @@ if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
 
     if (password_verify($password, $user['password'])) {
+        // Store in PHP session
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
 
-        header("Location: dashboard.html");
+        // Redirect to dashboard, but first store user_id in localStorage
+        echo "
+        <script>
+            localStorage.setItem('user_id', '{$user['id']}');
+            window.location.href = 'dashboard.php';
+        </script>
+        ";
         exit();
     } else {
-        echo "Wrong password!";
+        echo "<script>alert('Wrong password!'); window.history.back();</script>";
     }
 } else {
-    echo "User not found!";
+    echo "<script>alert('User not found!'); window.history.back();</script>";
 }
 ?>
+
