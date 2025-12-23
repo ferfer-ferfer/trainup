@@ -132,10 +132,7 @@ nav ul li button:hover {
 #part1 .primary:hover { background: #00bfff; }
 #part1 .secondary:hover { background: #00bfff; color: #fff; }
 
-#part1 .right img {
-  width: 500px;
-  border-radius: 20px;
-}
+
 
 
 #part2 {

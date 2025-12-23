@@ -73,6 +73,32 @@ $modules = json_decode($event['modules_json'], true);
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/dash.css" />
 <style>
+.info-grid {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Space between rows */
+    margin: 20px 0;
+}
+
+.info-grid > div {
+    display: flex;
+    justify-content: space-between; /* Label left, value right */
+    padding: 5px 10px;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.info-grid strong {
+    font-weight: 600;
+}
+
+.info-grid .tag {
+    font-weight: 500;
+    text-align: right;
+}
+
+
 #qrPopup {
     display: <?= $qr_file ? 'flex' : 'none' ?>;
     position: fixed;
@@ -114,19 +140,37 @@ $modules = json_decode($event['modules_json'], true);
 .modules input[type=radio]{display:none;}
 .modules .content{display:none; margin-top:5px;}
 .modules input[type=radio]:checked + .header + .content{display:block;}
+.modules .module .header .toggle {
+    font-weight: bold;
+    margin-left: auto;
+}
+.modules .module.open .content {
+    display: block;
+}
+.modules .module .content {
+    display: none;
+}
+
+
 </style>
 </head>
 <body>
-<header>
+  <header>
     <nav>
-        <ul>
-            <li><img src="img/logo.png" alt=""></li>
-            <li><a href="dashboard.html">Home</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="events.html">Events</a></li>
-        </ul>
+      <ul>
+        <li><img src="img/logo.png" alt=""></li>
+        <li><a href="dashboard.php">Home</a></li>
+        <li><a href="courses.php">Courses</a></li>
+        <li><a href="events.php">Events</a></li>
+        <li><a href="my_courses.php">My Courses</a></li>
+        <li><a href="#"><img src="img/Search.png" class="bar" alt=""></a></li>
+        <li>|</li>
+        <li><a href="panier.php"><img src="img/Group 68.png" class="bar" alt=""></a></li>
+        <li><a href="#"><img src="img/Doorbell.png" class="bar" alt=""></a></li>
+        <li><a href="profile.php "><img src="img/User.png" class="bar" alt=""></a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
 <main class="dashboard-container">
     <div class="sidebar">
@@ -149,6 +193,7 @@ $modules = json_decode($event['modules_json'], true);
                     <input type="radio" name="accordion" />
                     <div class="header">
                         <span><?= htmlspecialchars($mod['title']) ?></span>
+                        <span class="toggle">+</span>
                     </div>
                     <div class="content">
                         <p><?= htmlspecialchars($mod['content']) ?></p>
@@ -196,15 +241,66 @@ $modules = json_decode($event['modules_json'], true);
 </main>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const popup = document.getElementById('qrPopup');
-    const closeBtn = popup.querySelector('.close-btn');
+document.addEventListener('DOMContentLoaded', () => {
+    const modules = document.querySelectorAll('.modules .module');
 
-    closeBtn.addEventListener('click', function(e){
-        e.preventDefault();
-        popup.style.display = 'none';
+    modules.forEach(mod => {
+        const header = mod.querySelector('.header');
+        const toggle = mod.querySelector('.toggle');
+
+        header.addEventListener('click', () => {
+            const isOpen = mod.classList.contains('open');
+
+            // Close all modules
+            modules.forEach(m => {
+                m.classList.remove('open');
+                m.querySelector('.toggle').textContent = '+';
+            });
+
+            // Open clicked module if it was previously closed
+            if (!isOpen) {
+                mod.classList.add('open');
+                toggle.textContent = '-';
+            }
+        });
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const modules = document.querySelectorAll('.modules .module');
+
+    modules.forEach(mod => {
+        const header = mod.querySelector('.header');
+        const toggle = mod.querySelector('.toggle');
+
+        header.addEventListener('click', () => {
+            const isOpen = mod.classList.contains('open');
+
+            // Close all modules
+            modules.forEach(m => {
+                m.classList.remove('open');
+                m.querySelector('.toggle').textContent = '+';
+            });
+
+            // Open clicked module if it was previously closed
+            if (!isOpen) {
+                mod.classList.add('open');
+                toggle.textContent = '-';
+            }
+        });
+    });
+
+    // QR Popup Close Button
+    const qrPopup = document.getElementById('qrPopup');
+    const closeBtn = qrPopup.querySelector('.close-btn');
+
+    closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        qrPopup.style.display = 'none';
+    });
+});
+
+
 </script>
+
 </body>
 </html>

@@ -223,7 +223,7 @@ $conn->close();
         <li><a href="dashboard.php">Home</a></li>
         <li><a class="me" href="courses.php">Courses</a></li>
         <li><a href="events.php">Events</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="my_courses.php">My Courses</a></li>
         <li><a href="#"><img src="img/Search.png" class="bar" alt="search" /></a></li>
         <li>|</li>
         <li><a href="panier.php"><img src="img/Group 68.png" class="bar" alt="cart" /></a></li>
@@ -239,7 +239,7 @@ $conn->close();
       <a href="dashboard.php" class="sidebar-link">Dashboard</a>
       <a href="enrolled-courses.php" class="sidebar-link">Enrolled Courses</a>
       <a href="events.php" class="sidebar-link">Events</a>
-      <a href="community.php" class="sidebar-link">Community</a>
+      <a href="my_courses.php" class="sidebar-link">My Courses</a>
       <a href="settings.php" class="sidebar-link">Settings</a>
     </div>
 

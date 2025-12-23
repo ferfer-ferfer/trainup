@@ -35,43 +35,8 @@ while ($row = $result->fetch_assoc()) {
     $cartItems[] = $row;
     $total += $row['price'] * $row['quantity'];
 }
-?>
-<?php
-session_start();
-require 'db.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
-}
 
-$user_id = $_SESSION['user_id'];
-
-// Fetch cart items
-$sql = "
-    SELECT 
-        c.title,
-        c.price,
-        c.image,
-        ct.quantity
-    FROM cart ct
-    JOIN course c ON ct.course_id = c.id
-    WHERE ct.user_id = ?
-";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-
-$result = $stmt->get_result();
-
-$cartItems = [];
-$total = 0;
-
-while ($row = $result->fetch_assoc()) {
-    $cartItems[] = $row;
-    $total += $row['price'] * $row['quantity'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -13,9 +13,12 @@ $user_id = $_SESSION['user_id'];
 $method = $_POST['method'] ?? '';
 $total = $_POST['total_amount'] ?? 0;
 
+// Flag to track success
+$success = false;
+$error = "";
+
 // Handle Receipt Payment
 if($method === 'receipt') {
-
     if(isset($_FILES['receipt_image']) && $_FILES['receipt_image']['error'] === 0) {
         $uploadDir = 'uploads/recus/';
         if(!is_dir($uploadDir)){
@@ -27,11 +30,9 @@ if($method === 'receipt') {
 
         if(move_uploaded_file($_FILES['receipt_image']['tmp_name'], $targetFile)){
             // Insert into 'recus' table
-            // Assuming paiement_id = user_id for now, can be replaced with order ID if you have orders table
             $stmt = $conn->prepare("INSERT INTO recus (paiement_id, fichier) VALUES (?, ?)");
             $stmt->bind_param("is", $user_id, $filename);
             $stmt->execute();
-
             $success = true;
         } else {
             $error = "Failed to upload receipt.";
@@ -39,21 +40,47 @@ if($method === 'receipt') {
     } else {
         $error = "Please select a receipt image.";
     }
-
 } else {
     // For other payment methods, simulate success
     $success = true;
 }
 
-// Optionally: clear cart
-$stmt = $conn->prepare("DELETE FROM cart WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
+if($success){
+    // Fetch all cart items for enrollment
+    $stmt = $conn->prepare("SELECT course_id FROM cart WHERE user_id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// Redirect or show success message
-if(isset($success) && $success){
+    $course_ids = [];
+    while($row = $result->fetch_assoc()){
+        $course_ids[] = $row['course_id'];
+    }
+
+    // Enroll user in courses if not already enrolled
+    foreach($course_ids as $course_id){
+        $check = $conn->prepare("SELECT id FROM enrollments WHERE user_id = ? AND course_id = ?");
+        $check->bind_param("ii", $user_id, $course_id);
+        $check->execute();
+        $check->store_result();
+
+        if($check->num_rows === 0){
+            $insert = $conn->prepare("INSERT INTO enrollments (user_id, course_id, progress, enrolled_at) VALUES (?, ?, 0, NOW())");
+            $insert->bind_param("ii", $user_id, $course_id);
+            $insert->execute();
+        }
+        $check->close();
+    }
+
+    // Clear the cart
+    $stmt = $conn->prepare("DELETE FROM cart WHERE user_id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+
+    // Redirect to success page
     header("Location: payment_success.php");
     exit;
 } else {
     echo "<p style='color:red;'>$error</p><a href='payment.php'>Go back</a>";
 }
+?>

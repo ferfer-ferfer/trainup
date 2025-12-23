@@ -37,7 +37,7 @@ $result = $conn->query($sql);
     .dashboard-content .course-box {
       width: 280px;
     }
-    .me {
+.me {
       color: #00ffff;
     }
   </style>
@@ -47,26 +47,26 @@ $result = $conn->query($sql);
     <nav>
       <ul>
         <li><img src="img/logo.png" alt=""></li>
-        <li><a href="dashboard.html">Home</a></li>
+        <li><a href="dashboard.php" >Home</a></li>
         <li><a class="me" href="courses.php">Courses</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="events.php">Events</a></li>
+        <li><a href="my_courses.php">My Courses</a></li>
         <li><a href="#"><img src="img/Search.png" class="bar" alt=""></a></li>
         <li>|</li>
-        <li><a href="panier.html"><img src="img/Group 68.png" class="bar" alt=""></a></li>
+        <li><a href="panier.php"><img src="img/Group 68.png" class="bar" alt=""></a></li>
         <li><a href="#"><img src="img/Doorbell.png" class="bar" alt=""></a></li>
-        <li><a href="profile.html"><img src="img/User.png" class="bar" alt=""></a></li>
+        <li><a href="profile.php "><img src="img/User.png" class="bar" alt=""></a></li>
       </ul>
     </nav>
   </header>
   <main class="dashboard-container">
     <div class="sidebar">
       <a href="courses.php" class="sidebar-link active">Courses</a>
-      <a href="dashboard.html" class="sidebar-link">Dashboard</a>
-      <a href="enrolled-courses.html" class="sidebar-link">Enrolled Courses</a>
-      <a href="events.html" class="sidebar-link">Events</a>
-      <a href="community.html" class="sidebar-link">Community</a>
-      <a href="settings.html" class="sidebar-link">Settings</a>
+      <a href="dashboard.php" class="sidebar-link">Dashboard</a>
+      <a href="enrolled-courses.php" class="sidebar-link">Enrolled Courses</a>
+      <a href="events.php" class="sidebar-link">Events</a>
+      <a href="my_courses.php" class="sidebar-link">My Courses</a>
+      <a href="settings.php" class="sidebar-link">Settings</a>
     </div>
     <section class="dashboard-content">
       <h2><span>Our</span> courses</h2>

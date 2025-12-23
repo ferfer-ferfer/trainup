@@ -7,20 +7,20 @@ $filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
 // Build SQL based on filter
 switch($filter){
     case 'online':
-        $sql = "SELECT * FROM events WHERE type='Online' ORDER BY date ASC";
+        $sql = "SELECT * FROM events WHERE type='Online' ORDER BY start_date ASC";
         break;
 
     case 'onsite':
-        $sql = "SELECT * FROM events WHERE type='Onsite' ORDER BY date ASC";
+        $sql = "SELECT * FROM events WHERE type='Onsite' ORDER BY start_date ASC";
         break;
 
     case 'upcoming':
-        $sql = "SELECT * FROM events WHERE date >= CURDATE() ORDER BY date ASC";
+        $sql = "SELECT * FROM events WHERE start_date >= CURDATE() ORDER BY start_date ASC";
         break;
 
     case 'all':
     default:
-        $sql = "SELECT * FROM events ORDER BY date ASC";
+        $sql = "SELECT * FROM events ORDER BY start_date ASC";
         break;
 }
 
@@ -146,15 +146,15 @@ $result = $conn->query($sql);
   <nav>
     <ul>
       <li><img src="img/logo.png" alt=""></li>
-      <li><a href="dashboard.html">Home</a></li>
-      <li><a href="courses.html">Courses</a></li>
+      <li><a class="me" href="dashboard.php">Home</a></li>
+      <li><a href="courses.php">Courses</a></li>
       <li><a class="me" href="events.php">Events</a></li>
-      <li><a href="#">Community</a></li>
+      <li><a href="my_courses.php">My Courses</a></li>
       <li><a href="#"><img src="img/Search.png" alt="Search" class="bar"></a></li>
       <li>|</li>
-      <li><a href="panier.html"><img src="img/Group 68.png" alt="Cart" class="bar"></a></li>
+      <li><a href="panier.php"><img src="img/Group 68.png" alt="Cart" class="bar"></a></li>
       <li><a href="#"><img src="img/Doorbell.png" alt="Notifications" class="bar"></a></li>
-      <li><a href="profile.html"><img src="img/User.png" alt="User" class="bar"></a></li>
+      <li><a href="profile.php"><img src="img/User.png" alt="User" class="bar"></a></li>
     </ul>
   </nav>
 </header>
@@ -186,7 +186,7 @@ $result = $conn->query($sql);
             <div class="center-content">
               <h3><?= htmlspecialchars($event['title']); ?></h3>
               <p class="details"><?= htmlspecialchars($event['type'].' Workshop'); ?></p>
-              <p class="date"><?= date('j F Y', strtotime($event['date'])); ?></p>
+              <p class="date"><?= date('j F Y', strtotime($event['start_date'])); ?></p>
             </div>
             <a href="event.php?id=<?= htmlspecialchars($event['id']); ?>">Show more</a>
           </div>

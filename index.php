@@ -102,6 +102,21 @@
       color: #00d5ff;
       font-weight: 600;
     }
+    .personne{
+  width: 150px;
+  border-radius: 50%;
+   border: 1px solid #00ffff;
+}
+
+    @keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-50px); }
+  100% { transform: translateY(0px); }
+}
+
+.personne.float {
+  animation: float 2s ease-in-out infinite;
+}
   </style>
 </head>
 
@@ -129,7 +144,7 @@
       </div>
     </div>
     <div class="right">
-      <img src="img/futuristic_robot_girl_portrait_with_blue_neon_accents.png" alt="TrainUp Platform" width="300">
+      <img class="personne float" src="img/indexx.png" alt="TrainUp Platform" width="300">
     </div>
   </section>
 

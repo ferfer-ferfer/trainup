@@ -275,6 +275,15 @@
    border: 1px solid #00ffff;
 }
 
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-50px); }
+  100% { transform: translateY(0px); }
+}
+
+.personne.float {
+  animation: float 2s ease-in-out infinite;
+}
 
 
   </style>
@@ -301,8 +310,8 @@
       <p>It started with a simple belief: <strong>learning should never stop.</strong><br>
         TrainUp empowers people everywhere to learn, grow, and level up — anytime, anywhere.</p>
     </div>
-    <div class="right">
-      <img src="img/aboutas.jpg" alt="Our Story" width="400">
+    <div class="right ">
+      <img class="personne float" src="img/image.png" alt="Our Story">
     </div>
   </section>
 
@@ -366,22 +375,22 @@
     <h2><span>Our</span> Learning Team</h2>
     <div class="team-container">
       <div class="team-card">
-        <img class="personne" src="img/personne2.png" alt="">
+        <img class="personne" src="img/me.png" alt="">
         <h3>Feriel Menouer</h3>
         <p>Coe-founder</p>
       </div>
       <div class="team-card">
-        <img class="personne" src="img/personne1.png" alt="">
+        <img class="personne" src="img/yes.png" alt="">
         <h3>Yasmine Belhadi</h3>
         <p>Marketing Manager</p>
       </div>
       <div class="team-card">
-        <img class="personne" src="img/personne2.png" alt="">
+        <img class="personne" src="img/me.png" alt="">
         <h3>Feriel Meneour</h3>
         <p>HR Manager</p>
       </div>
       <div class="team-card">
-        <img class="personne" src="img/personne1.png" alt="">
+        <img class="personne" src="img/yes.png" alt="">
         <h3>Yasmine Belhadi</h3>
         <p>Graphic Designer</p>
       </div>
@@ -395,14 +404,14 @@
   <section id="ask">
     <h2>Got any questions?</h2>
     <h2><span>Feel free to contact us!</span></h2>
-    <form>
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="tel" placeholder="Phone Number">
-      <textarea placeholder="Your question..." rows="4"></textarea>
-      <button type="submit">Send the message</button>
-    </form>
+<form action="send_question.php" method="POST">
+  <input type="text" name="firstname" placeholder="First Name" required>
+  <input type="text" name="lastname" placeholder="Last Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="tel" name="phone" placeholder="Phone Number">
+  <textarea name="message" placeholder="Your question..." rows="4" required></textarea>
+  <button type="submit">Send the message</button>
+</form>
   </section>
 
   <!-- FOOTER -->
@@ -447,3 +456,7 @@
   </footer>
 </body>
 </html>
+
+
+
+
