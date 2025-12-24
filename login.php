@@ -333,11 +333,11 @@ main {
     <nav>
       <ul>
         <li><img src="img/logo.png" alt=""></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html">Courses</a></li>
-        <li><a href="aboutas.html">About Us</a></li>
-        <li><a href="aboutas.html">Contact</a></li>
-        <li><a href="login.html" class="button" id="headerSignIn">Sign In</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="courses.php">Courses</a></li>
+        <li><a href="aboutas.php">About Us</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li><a href="login.php" class="button" id="headerSignIn">Sign In</a></li>
       </ul>
     </nav>
   </header>
@@ -364,7 +364,7 @@ main {
             <label for="remember">Remember Me</label>
           </div>
           <div class="forgot">
-            <a href="#">Forgot Password?</a>
+            <a href="forgot_password.php">Forgot Password?</a>
           </div>
         </div>
 
@@ -406,11 +406,56 @@ main {
     <input type="password" name="confirm_password" placeholder="Confirm Password" required />
 
     <button type="submit" class="signin-btn">Sign Up</button>
+    <div class="switch-link">
+  Already have an account? <a href="#" id="toSignin">Sign In</a>
+</div>
+
 </form>
 
 
     </div>
   </div>
+  <script>
+  const signInSection = document.querySelector("main.signin");
+  const signUpSection = document.querySelector(".container.signup");
+
+  const toSignup = document.getElementById("toSignup");
+  const headerBtn = document.getElementById("headerSignIn");
+
+  // initial state
+  signUpSection.style.display = "none";
+  headerBtn.textContent = "Sign Up";
+
+  function showSignIn() {
+    signInSection.style.display = "flex";
+    signUpSection.style.display = "none";
+    headerBtn.textContent = "Sign Up";
+  }
+
+  function showSignUp() {
+    signInSection.style.display = "none";
+    signUpSection.style.display = "block";
+    headerBtn.textContent = "Sign In";
+  }
+
+  // click from form link
+  toSignup.addEventListener("click", function (e) {
+    e.preventDefault();
+    showSignUp();
+  });
+
+  // click from navbar button
+  headerBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (signUpSection.style.display === "block") {
+      showSignIn();
+    } else {
+      showSignUp();
+    }
+  });
+</script>
+
 </body>
 </html>
 

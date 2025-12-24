@@ -1,3 +1,23 @@
+<?php
+include "db.php";
+
+// Fetch latest 4 courses for normal display
+$sql_courses = "SELECT id, title, price, image, level, duration 
+                FROM course 
+                ORDER BY last_updated DESC 
+                LIMIT 4";
+$result_courses = $conn->query($sql_courses);
+
+// Fetch promotions with course info
+$sql_promotions = "SELECT p.id AS promotion_id, p.discount, c.id AS course_id, c.title, c.price, c.image, c.level, c.duration
+                   FROM promotion p
+                   JOIN course c ON p.course_id = c.id
+                   ORDER BY p.start_date DESC
+                   LIMIT 4";
+$result_promotions = $conn->query($sql_promotions);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,11 +145,11 @@
     <nav>
       <ul>
         <li><img src="img/logo.png" alt=""></li>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="#courses-list">Courses</a></li>
-        <li><a href="aboutas.html">About Us</a></li>
+        <li><a href="aboutas.php">About Us</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="login.html" class="button">Sign In</a></li>
+        <li><a href="login.php" class="button">Sign In</a></li>
       </ul>
     </nav>
   </header>
@@ -165,48 +185,40 @@
     </div>
 
     <div id="courses-list" class="courses-list">
-      <div class="course-box">
-        <div class="img-box"><img src="img/photo_2025-10-27_12-18-51.jpg" alt="Graphic Design"></div>
-        <div class="course-card">
-          <h3>Graphic Design</h3>
-          <p>by Feriel Menouer</p>
-          <p class="price">20000DZD</p>
-          <a href="login.html" class="see-more">See more</a>
-        </div>
+
+<?php if ($result_courses->num_rows > 0) { ?>
+  <?php while ($row = $result_courses->fetch_assoc()) { ?>
+
+    <div class="course-box">
+      <div class="img-box">
+        <img src="img/<?php echo htmlspecialchars($row['image']); ?>"
+             alt="<?php echo htmlspecialchars($row['title']); ?>">
       </div>
 
-      <div class="course-box">
-        <div class="img-box"><img src="img/photo_2025-10-27_12-19-04.jpg" alt="Digital Marketing"></div>
-        <div class="course-card">
-          <h3>Digital Marketing</h3>
-          <p>by Yasmine Belhadi</p>
-          <p class="price">25000DZD</p>
-          <a href="login.html" class="see-more">See more</a>
-        </div>
-      </div>
+      <div class="course-card">
+        <h3><?php echo htmlspecialchars($row['title']); ?></h3>
 
-      <div class="course-box">
-        <div class="img-box"><img src="img/photo_2025-10-27_12-19-11.jpg" alt="Web Development"></div>
-        <div class="course-card">
-          <h3>Web Development</h3>
-          <p>by Adem Menouer</p>
-          <p class="price">30000DZD</p>
-          <a href="login.html" class="see-more">See more</a>
-        </div>
-      </div>
+        <p>
+          <?php echo htmlspecialchars($row['level']); ?> ·
+          <?php echo htmlspecialchars($row['duration']); ?>
+        </p>
 
-      <div class="course-box">
-        <div class="img-box"><img src="img/photo_2025-10-27_12-18-51.jpg" alt="UI/UX Design"></div>
-        <div class="course-card">
-          <h3>UI/UX Design</h3>
-          <p>by Yassine Belhadi</p>
-          <p class="price">8000DZD</p>
-          <a href="login.html" class="see-more">See more</a>
-        </div>
+        <p class="price"><?php echo $row['price']; ?> DZD</p>
+
+        <!-- Redirect to login -->
+        <a href="login.php" class="see-more">See more</a>
       </div>
     </div>
 
-    <a class="see-all" href="login.html">See all courses</a>
+  <?php } ?>
+<?php } else { ?>
+  <p>No courses available.</p>
+<?php } ?>
+
+</div>
+
+
+    <a class="see-all" href="login.php">See all courses</a>
   </section>
 
   <section id="certification">
@@ -252,6 +264,54 @@
       <h3>Join 1,000+ Students Learning with <span>TrainUp</span></h3>
     </div>
   </section>
+
+  <section id="part3">
+  <h2><span>Promotion</span> of the Month</h2>
+
+  <div class="courses-list">
+
+
+  <?php if ($result_promotions->num_rows > 0) { ?>
+    <?php while ($promo = $result_promotions->fetch_assoc()) { 
+        // Calculate discounted price
+        $discounted_price = $promo['price'] * (1 - $promo['discount'] / 100);
+    ?>
+      <div class="course-box">
+        <div class="img-box">
+          <img src="img/<?php echo htmlspecialchars($promo['image']); ?>" 
+               alt="<?php echo htmlspecialchars($promo['title']); ?>">
+        </div>
+
+        <div class="course-card">
+          <h3><?php echo htmlspecialchars($promo['title']); ?></h3>
+
+          <p>
+            <?php echo htmlspecialchars($promo['level']); ?> ·
+            <?php echo htmlspecialchars($promo['duration']); ?>
+          </p>
+
+          <p class="price">
+  <span style="color: #fff; text-decoration: line-through; display: block;">
+    <?php echo $promo['price']; ?> DZD
+  </span>
+  <?php echo round($discounted_price); ?> DZD
+</p>
+
+
+          <!-- Redirect to login -->
+          <a href="login.php" class="see-more">See more</a>
+        </div>
+      </div>
+    <?php } ?>
+  <?php } else { ?>
+    <p>No promotions available.</p>
+  <?php } ?>
+
+  </div>
+
+
+  <a class="see-all" href="login.php">See all Promotions</a>
+</section>
 
   <footer>
     <div id="contact" class="footer-container">

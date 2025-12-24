@@ -3,28 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verify Email</title>
+<title>TrainUp | Verify Email</title>
+  <link rel="icon" href="img/Group 100.png" type="image/png">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.container {
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin: 50px auto;
+body {
+   
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h2 { margin-bottom: 20px; color: #333; }
-form { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-input, button { width: 80%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
-input:focus { border-color: #007bff; outline: none; }
-button { background-color: #007bff; color: #fff; border: none; cursor: pointer; }
-button:hover { background-color: #0056b3; }
-.success { color: green; margin-bottom: 15px; }
-.error { color: red; margin-bottom: 15px; }
+.container {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,217,255,0.2);
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 400px;
+    margin: 80px auto;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+h2 {
+    color: #00e5ff;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #00bfff;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 6px #00e5ff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #00d5ff;
+    color: #001f54;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00a9cc;
+    transform: scale(1.03);
+}
+
+.success, .error {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.success { color: lightgreen; }
+.error { color: #ff6b6b; }
+
+.switch-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch-link a {
+    color: #00d5ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}
+
+/* Small screens */
+@media (max-width:480px) {
+    .container {
+        padding: 25px 20px;
+        margin: 50px 10px;
+    }
+
+    h2 { font-size: 1.5rem; }
+    input, button { font-size: 13px; padding: 10px; }
+}
 </style>
 </head>
 <body>

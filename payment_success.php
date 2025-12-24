@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Payment Successful</title>
+<title>TrainUp | Payment Successful</title>
+  <link rel="icon" href="img/Group 100.png" type="image/png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
